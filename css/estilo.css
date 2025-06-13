@@ -1,0 +1,159 @@
+*{
+	margin: 0; /* eliminar margem padrão */
+	padding: 0; /* eliminar padding padrão */
+}
+
+body{
+	background: #414950;
+}
+
+.checkbtn, #check { /*Botão para uso responsivo*/
+	position: fixed;
+	right: 20px;
+	margin-left: 20px;
+	font-size: 30px;
+	color: white;
+	line-height: 80px;
+	cursor: pointer;
+	margin-right: 40px;
+	 display: none;  /*Ativar e desativar para demostrar a diferença*/
+}
+
+#check {
+	display: none;   /*Desativa o botão quado utilizado acima de 858px*/
+  }
+
+  .logomarca{
+	width: 150px;
+	padding: 0 0;
+}
+
+.menu{
+	
+	width: 100%;
+	font-family: "impact";
+	font-size: 16px;
+	display: flex;
+	background-color: #5e6ab1;  /* cor ao fundo do logo */
+	
+}
+.menu ul{
+	list-style: none;
+	display: flex;
+	text-align: center;
+	flex-grow: 1;
+	
+}
+.menu ul li{
+	background-color: #5e6ab1;
+	flex-grow: 1; /* para que cada li ocupe o mesmo tamanho dividindo o espaço disponível */
+	border: solid 1px #fff;
+}
+
+
+
+/*
+exemplo de como fazer um dos filhos flex crescer mais
+.menu ul li:nth-of-type(3) {
+	flex-grow: 5;
+}
+*/
+
+
+.menu ul li a{
+	text-decoration:none;
+	color: #f2f2f2;
+    padding: 20px;
+    display: block;
+
+	}
+
+.menu ul li ul{
+	 display: none; /* tornar a sublista oculta */
+	 width: 90%;
+	 margin-left: 5%;
+}
+
+.menu ul li:hover{
+	background-color:#373b37;
+}
+
+.menu ul li:hover > ul{
+    display: block; 
+}
+
+.container { /*Criar o container para as <divs>*/
+	width: 100%;
+	display: grid; /* para os elementos se compararem como tabela*/
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+	/*Fazendo com que os elementos internos dividam o espaço, crescendo ou diminuindo*/
+	/*fr= fração do espaço disponível no container do grid.*/
+	/* minmax(). É uma função permitindo setar valores, que inclui um valor mínimo e máximo.*/
+    
+	grid-gap: 0.5em; /*Define os espações (glutters) entre linhas e colunas*/
+	margin-bottom: 9vh;  /* altera tamanho da margen */
+	/* inferior aqui serve para liberar espaço para exibir o rodapé que tem posição fixa */
+}
+
+.container div {
+    background-color: #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+footer {
+
+	width: 100%;
+	height: 8vh;
+	position: fixed;
+	bottom: 0;
+	background-color: black;
+	padding: 5px; 
+	text-align: center;
+	color: white;
+	font-family: "impact";
+	font-size: 16px;
+}
+
+
+
+
+/* resposivo quando o tamanho máximo for até 520 - ou seja será aplicado para telas menores que 520px de largura */
+@media (max-width: 520px) {
+
+
+	.menu ul{
+	 	display:block; /* li dispostas em bloco (uma sobre a outra) */
+		 position: fixed; 
+		 top: 80px;
+		 left: -100%;
+		 width: 100%;
+	 }
+
+	 .menu ul li:hover > ul{
+		position: relative;
+		top: 0;
+		left: 0; 	
+	}
+	.checkbtn{
+		display: block;
+	}
+
+	#check:checked ~ ul {
+        	left: 0;
+		transition: 0.5s;
+    	}
+
+  .logomarca{
+	   padding: 0 80px;
+  }
+ .container {
+margin-bottom: 7vh; /* altera tamanho da margen */
+	/* inferior aqui serve para liberar espaço para exibir o rodapé que tem posição fixa */
+}
+
+ footer{
+height: 6vh;
+}
+
+}

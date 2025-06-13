@@ -1,0 +1,107 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+
+body{
+	background:  black;
+	font-family: "impact";
+	font-size: 16pt;
+	text-align: center;
+}
+
+.menu{
+	width: 100vw;
+}
+
+.menu ul{
+	list-style: none;
+	display: flex;
+	text-align: center;
+	min-height: 10vh;
+}
+
+.menu ul li{
+	background-color: #515b96;
+	padding: 20px;
+	flex-grow: 1;
+	transition: background-color .2s linear;
+	border: solid 1px #fff;
+}
+
+
+
+/*
+exemplo de como fazer um dos filhos flex crescer mais
+.menu ul li:nth-of-type(2) {
+	flex-grow: 3;
+}
+*/
+
+
+.menu ul li a{
+	text-decoration:none;
+	color: #f2f2f2;
+}
+
+.menu ul li ul{
+	display: none;
+}
+
+.menu ul li:hover{
+	border: solid 1px #fff;
+	background-color:transparent !important;
+	cursor: pointer;
+}
+
+
+.menu ul li:hover > ul{
+	display: block;
+}
+
+.central{
+	display: flex;
+	width: 100vw;
+	min-height: 79vh;
+}
+
+aside{
+background-color: green;
+flex-grow: 1;
+}
+
+main{
+background-color: yellow;
+flex-grow: 3;
+}
+
+footer{
+background-color: red;
+width: 100vw;
+min-height: 10vh;
+}
+
+
+@media (max-width: 520px) {
+
+	.menu ul{
+	 	display:block;
+	}
+
+	 .central{
+		display: block;
+		width: 100vw;
+		min-height: 50vh;
+	}
+
+	 aside{
+			min-height: 35vh;
+		}
+		
+		main{
+			min-height: 35vh;
+		}
+		
+}
